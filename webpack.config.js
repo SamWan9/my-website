@@ -5,6 +5,7 @@ const path = require("path");
 module.exports = {
     devServer: {
         port: 3000,
+        overlay: true,
         contentBase: path.join(__dirname, "assets")
     },
     module: {

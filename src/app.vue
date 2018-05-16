@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <top-nav />
-        <router-view />
+        <router-view class="view" />
     </div>
 </template>
 
@@ -15,5 +15,7 @@
 </script>
 
 <style scoped>
-
+    .view {
+        padding-top: 50px;
+    }
 </style>
