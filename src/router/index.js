@@ -6,7 +6,7 @@ import blog from "../blog/index";
 Vue.use(Router);
 
 export default new Router({
-    // mode: 'history',
+    mode: 'history',
     routes: [
         {
             path: "/",
