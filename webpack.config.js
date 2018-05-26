@@ -6,6 +6,9 @@ module.exports = {
     devServer: {
         port: 3000,
         overlay: true,
+        proxy: {
+            "/": "http://localhost:8080"
+        },
         contentBase: path.join(__dirname, "assets")
     },
     module: {

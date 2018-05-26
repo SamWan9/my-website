@@ -26,7 +26,7 @@
         align-items: center;
         text-indent: 30px;
         .item {
-            margin-right: 20px;
+            padding-right: 20px;
             cursor: pointer;
             transition: all .2s ease-in-out;
             &:hover {
@@ -34,6 +34,14 @@
             }
             &.active {
                 color: #338bff;
+            }
+        }
+    }
+    @media screen and (max-width: 520px) {
+        .top-nav {
+            overflow-x: auto;
+            &::-webkit-scrollbar {
+                display:none;
             }
         }
     }

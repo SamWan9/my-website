@@ -46,4 +46,16 @@
             background: rgba(255, 255, 255, .5);
         }
     }
+    @media screen and (max-width: 520px) {
+        .home-background {
+            .message {
+                width: 50%;
+                height: 60%;
+                writing-mode: vertical-lr;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
 </style>
