@@ -1,5 +1,7 @@
 <template>
     <div class="blog">
+        <button style="width: 100px; height: 30px; margin-top: 30px;" @click="start">start</button>
+        <button style="width: 100px; height: 30px; margin-top: 30px;" @click="end">end</button>
         <blog-list :blogList="BlogList" />
     </div>
 </template>
@@ -16,9 +18,16 @@
                 BlogList: []
             }
         },
+        methods: {
+            start() {
+                this.$Loading.start();
+            },
+            end() {
+                this.$Loading.end();
+            }
+        },
         mounted() {
             axios.get("/getBlogList").then(res => {
-                console.log(res);
                 this.BlogList = [...res.data];
             }).catch(error => {
                 console.log(error);

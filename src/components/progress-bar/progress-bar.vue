@@ -1,6 +1,8 @@
 <template>
     <transition name="fade">
-        <div v-show="isShow" class="progress-bar"></div>
+        <div v-show="isShow" class="progress-bar">
+            <div class="progress-bar-inner" :style="styleObj"></div>
+        </div>
     </transition>
 </template>
 
@@ -9,17 +11,30 @@
         name: "progress-bar",
         data() {
             return {
-                isShow: false
+                isShow: false,
+                percent: 0
             }
         },
+        computed: {
+           styleObj() {
+               return {
+                   width: `${this.percent}%`
+               }
+           }
+        },
         methods: {
-            show() {
+            show(percent) {
+                this.percent = percent;
                 this.isShow = true;
             },
             hide() {
+                this.percent = 100;
                 setTimeout(() => {
                     this.isShow = false;
-                }, 1000);
+                    setTimeout(() => {
+                        this.percent = 0;
+                    }, 800);
+                }, 250);
             }
         }
     }
@@ -32,14 +47,18 @@
         width: 100%;
         height: 3px;
         opacity: 1;
-        background: #2d8cf0;
         z-index: 999;
+        .progress-bar-inner {
+            height: 3px;
+            background: #2d8cf0;
+            transition: width .2s linear;
+        }
     }
     .fade-enter-active {
-        transition: width 1s;
+        transition: width .2s;
     }
     .fade-leave-active {
-        transition: opacity 1s;
+        transition: opacity .8s, width .2s;
     }
     .fade-enter {
         width: 0;

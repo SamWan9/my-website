@@ -24,10 +24,20 @@ const GetProgressBarInstance = (function () {
     };
 
     CreateInstance.prototype.start = function () {
-        this.progressBar.show();
+        let percent = 0;
+        this.progressBar.show(percent);
+        if (this.timer) clearInterval(this.timer);
+        this.timer = setInterval(() => {
+            if (percent >= 90) {
+                clearInterval(this.timer);
+            }
+            percent += Math.floor(Math.random() * 5 + 3);
+            this.progressBar.show(percent);
+        }, 200);
     };
 
     CreateInstance.prototype.end = function () {
+        clearInterval(this.timer);
         this.progressBar.hide();
     };
 
