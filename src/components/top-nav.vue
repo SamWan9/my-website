@@ -4,6 +4,7 @@
         <router-link tag="span" class="item" to="/blog">Blog</router-link>
         <router-link tag="span" class="item" to="/resume">Resume</router-link>
         <router-link tag="span" class="item" to="/chat">Chat</router-link>
+        <router-link tag="span" class="item" to="/rank">Rank</router-link>
     </div>
 </template>
 

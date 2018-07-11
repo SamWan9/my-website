@@ -4,7 +4,7 @@
   "description": "个人网站",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --config webpack.config.js",
+    "dev": "webpack-dev-server --hot --mode development --config webpack.config.js",
     "build": "webpack --mode production  --config webpack.config.js"
   },
   "author": "sam_wang",
