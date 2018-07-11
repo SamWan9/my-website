@@ -23,7 +23,7 @@
         },
         methods: {
             handleOk() {
-                alert("3号目标已拿下！");
+                alert("ヾ(≧▽≦*)o");
             },
             handleNo() {
                 if (this.index === -1) {
