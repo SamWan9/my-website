@@ -33,6 +33,9 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
     progressBar.start();
+    if (to.query && to.query.t === "chat") {
+        router.push("/chat");
+    }
     next();
 });
 
