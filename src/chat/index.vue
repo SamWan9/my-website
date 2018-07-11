@@ -60,6 +60,7 @@
                 line-height: 80px;
             }
             h1 {
+                font-size: 25px;
                 line-height: 100px;
             }
         }
