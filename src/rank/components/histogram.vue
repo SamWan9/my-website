@@ -1,5 +1,5 @@
 <template>
-    <div class="container" :style="styleObj">
+    <div class="histogram" :style="styleObj">
         <div class="rate" :style="rateStyleObj"></div>
     </div>
 </template>
@@ -36,8 +36,9 @@
             return height / 2 + "px";
         } else if (type === "string") {
             let numStr = "";
-            let unit = height.replace(/\d/g, s => {
+            let unit = height.replace(/\d|\./g, s => {
                 numStr += s;
+                return "";
             });
             return numStr / 2 + unit;
         }
@@ -119,7 +120,7 @@
 </script>
 
 <style lang="less" scoped>
-    .container {
+    .histogram {
         background: #dddee1;
         .rate {
             height: 100%;
