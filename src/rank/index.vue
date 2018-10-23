@@ -46,6 +46,20 @@
     };
     const length = 9;
 
+    /**
+     *
+     * 0 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     * 1 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     * 2 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     * 3 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     * 4 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     * 5 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     * 6 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     * 7 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     * 8 [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     *
+     */
+
     export default {
         components: {Histogram},
         name: "index",
@@ -56,6 +70,24 @@
                     step: 200000
                 },
                 singleNumData: getSingleNumData(length)
+            }
+        },
+        computed: {
+            rowData() {
+                let arr = [];
+                this.singleNumData.forEach((item, index) => {
+                    for (let i = 0; i < length; i++) {
+                        if (Object.prototype.toString.call(arr[i]) !== "[object Array]") {
+                            arr[i] = [];
+                        }
+                        arr[i][index] = item[i];
+                    }
+                });
+
+                return arr;
+            },
+            squareData() {
+
             }
         },
         methods: {
@@ -76,6 +108,22 @@
                     alert(`第${row + 1}行第${col + 1}列格式不正确，请重写 …（⊙＿⊙；）…`);
                 }
                 return flag;
+            },
+            checkAnswer() {
+                let flag = true;
+                // 1.验证每一行之和是不是45
+                for (let i = 0; i < length; i++) {
+                    let temp = this.singleNumData[i];
+                    if (temp.reduce((total, cur) => total + Number(cur)) !== 45) {
+                        flag = false;
+                        break;
+                    }
+                }
+
+                // 2.验证每一列之和是不是45
+
+                // 3.验证每一个九宫格之和是不是45
+
             },
             getAnswer() {
                 if (!this.checkValue()) return;
