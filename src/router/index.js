@@ -9,7 +9,7 @@ import progressBar from "../components/progress-bar/index";
 Vue.use(Router);
 
 const router = new Router({
-    mode: 'history',
+    // mode: 'history',
     routes: [
         {
             path: "/",
